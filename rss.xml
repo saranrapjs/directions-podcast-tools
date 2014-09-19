@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Directions podcast</title>
+    <link>http://bigboy.us/directions/</link>
+    <description>Monthly walking directions for selected metro areas</description>
+    <item>
+      <title>Episode 1: New York</title>
+      <link/>
+      <description/>
+      <enclosure url="http://bigboy.us/directions/audio/new_york_city_final.mp3" type="audio/mpeg" length="30863733"/>
+    </item>
+  </channel>
+</rss>
