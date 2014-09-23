@@ -1,0 +1,14 @@
+{
+  "name": "directions-podcast-tools",
+  "version": "1.0.0",
+  "description": "#### random.js",
+  "main": "directions.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jeff Sisson <jeff@bigboy.us> (http://ilikenicethings.com/)",
+  "license": "ISC",
+  "dependencies" : {
+  	"googlemaps" : "*"
+  }
+}
