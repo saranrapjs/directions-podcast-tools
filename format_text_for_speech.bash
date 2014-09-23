@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# at directions | ./format.bash > directions_speech
+# cat directions | ./format.bash > directions_speech
 
 VALUE=$(cat)
 while read -r line; do
