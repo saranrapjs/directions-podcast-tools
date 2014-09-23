@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:cc="http://web.resource.org/cc/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:media="http://search.yahoo.com/mrss/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <channel>
     <title>Directions podcast</title>
-    <pubDate>Tue, 23 Sep 2014 10:00:00 +0000</pubDate>
-    <lastBuildDate>Tue, 23 Sep 2014 10:00:00 +0000</lastBuildDate>
+    <pubDate>Tue, 23 Sep 2014 11:00:00 +0000</pubDate>
+    <lastBuildDate>Tue, 23 Sep 2014 11:00:00 +0000</lastBuildDate>
     <language>en</language>
     <itunes:category text="Arts"/>
     <itunes:image href="http://bigboy.us/directions/img/directions.png" />
@@ -17,10 +17,11 @@
     <itunes:author>Jeff Sisson</itunes:author>
     <item>
       <title>Episode 1: New York</title>
-      <pubDate>Tue, 23 Sep 2014 10:00:00 +0000</pubDate>
+      <pubDate>Tue, 23 Sep 2014 11:00:00 +0000</pubDate>
       <link/>
-      <description/>
+      <description>directions for New York City</description>
       <enclosure url="http://bigboy.us/directions/audio/new_york_city_final.mp3" type="audio/mpeg" length="30863733"/>
+      <itunes:duration>28:27</itunes:duration>
     </item>
   </channel>
 </rss>
