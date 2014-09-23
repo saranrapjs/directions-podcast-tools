@@ -13,16 +13,18 @@ var city = process.argv[2] || 'New York City, NY, USA',
 	filter,
 	final_points = [];
 
-filter = function(addr) {
-	var is_new_york = false;
-	addr.forEach(function(component) {
-		if (component.types.indexOf('administrative_area_level_2') !== -1 // county level?
-			&& /(Queens|Kings|Richmond|Bronx|New York) County/.test(component.long_name) === true) {
-			is_new_york = true;
-		}
-	})
-	return is_new_york;
-}
+// optional filter function, ex:
+
+// filter = function(addr) {
+// 	var is_new_york = false;
+// 	addr.forEach(function(component) {
+// 		if (component.types.indexOf('administrative_area_level_2') !== -1 // county level?
+// 			&& /(Queens|Kings|Richmond|Bronx|New York) County/.test(component.long_name) === true) {
+// 			is_new_york = true;
+// 		}
+// 	})
+// 	return is_new_york;
+// }
 
 function random_between() {
 	if (!arguments || arguments.length < 1) throw "Must have at least two numbers";
