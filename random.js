@@ -10,21 +10,15 @@ var util = require('util');
 var city = process.argv[2] || 'New York City, NY, USA',
 	number_of_points = 20,
 	bounds,
-	filter,
+	my_filter,
 	final_points = [];
 
-// optional filter function, ex:
+// optional filter function:
+try {
+	my_filter = require('./filter.js');
+} catch (e) {
 
-// filter = function(addr) {
-// 	var is_new_york = false;
-// 	addr.forEach(function(component) {
-// 		if (component.types.indexOf('administrative_area_level_2') !== -1 // county level?
-// 			&& /(Queens|Kings|Richmond|Bronx|New York) County/.test(component.long_name) === true) {
-// 			is_new_york = true;
-// 		}
-// 	})
-// 	return is_new_york;
-// }
+}
 
 function random_between() {
 	if (!arguments || arguments.length < 1) throw "Must have at least two numbers";
@@ -55,8 +49,8 @@ function do_points(pts) {
 				'lat' : first_result.geometry.location.lat,
 				'lng' : first_result.geometry.location.lng
 			};
-		if (filter) {
-			match = filter(first_result.address_components);
+		if (my_filter) {
+			match = my_filter(first_result.address_components);
 			if (match === true) {
 				final_points.push(new_point)
 			} else {

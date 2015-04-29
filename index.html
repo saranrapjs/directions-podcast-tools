@@ -20,7 +20,7 @@
 			font-size: 30px;
 		}
 		ol {
-			/*list-style: none;*/
+			list-style: none;
 			list-style-position: inside;
 			margin:0;
 			padding:0;
@@ -30,12 +30,17 @@
 		}
 		li {
 			text-align: center;
+			margin-bottom: 100px;
 		}
 		hr {
 			border:0;
 			border-top:1px dashed gray;
 		}
-		audio::-webkit-media-controls-panel {
+		.lightblue audio::-webkit-media-controls-panel {
+			background: lightblue;
+			border-radius: 0;
+		}
+		.purple audio::-webkit-media-controls-panel {
 			background: purple;
 			border-radius: 0;
 		}
@@ -52,7 +57,20 @@
 		<p><a href="rss.xml">RSS</a> <a href="https://itunes.apple.com/us/podcast/directions-podcast/id920670168">iTunes</a> <a href="https://github.com/saranrapjs/directions-podcast-tools">GitHub</a></p>
 		<hr>
 		<ol>
-			<li>
+			<li class="lightblue">
+				<h3>Episode 2: Newport News</h3>
+				<p>
+					April 28, 2015
+				</p>
+				<p>
+					<img src="img/newportnews.svg" alt="">
+				</p>
+				<p>
+					<audio src="audio/newport_news_final.mp3" controls></audio>
+				</p>
+				<h4><a href="audio/newport_news_final.mp3">Download MP3</a></h4>
+			</li>			
+			<li class="purple">
 				<h3>Episode 1: New York City</h3>
 				<p>
 					September 23, 2014

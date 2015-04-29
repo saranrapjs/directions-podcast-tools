@@ -15,3 +15,21 @@ convert a JSON array of lat and lng points into an purple SVG polyline with endp
 #### format_text_for_speech.bash
 
 A simple shell script for taking a series of directions (one per line) and making a number of substitutions to optimize the sound of them as spoken by a Mac text-to-speech voice
+
+### A sample workflow
+
+```
+# produce the points and directions
+node random.js > points.json
+
+# produce directions for speech...
+cat points.json | node directions.js true > directions.txt
+cat directions.txt | node format_text_for_speech.js > directions_speech.txt
+
+# on a mac:
+cat directions_speech.txt | say
+
+# ...and for an SVG map:
+cat points.json | node directions.js false > directions.json
+cat directions.json | node map.js > map.svg
+```
