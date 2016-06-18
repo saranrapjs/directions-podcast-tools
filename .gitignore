@@ -4,4 +4,3 @@ img/
 vendor/
 node_modules/
 composer.lock
-filter.js

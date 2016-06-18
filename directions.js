@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // USAGE:
 
 // cat BLOB_OF_DIRECTIONS.json | node directions.js

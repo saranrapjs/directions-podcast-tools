@@ -1,3 +1,7 @@
+#!/usr/bin/env node
+
+'use strict';
+
 // USAGE:
 
 // cat BLOB_OF_DIRECTIONS.json | node map.js
@@ -8,11 +12,18 @@ var fs = require('fs'),
 	d3 = require('d3'),
 	line_color = process.argv[2] || 'purple';
 
-process.stdin.resume();
+let input = ''
 
-process.stdin.on('data', function(data) {
-	var pts = JSON.parse(data.toString());
-	map_points(pts);
+process.stdin.resume();
+process.stdin.on('data', data => input += data.toString());
+process.stdin.on('end', function() {
+	let pts
+	try {
+		pts = JSON.parse(input);
+	} catch (e) {
+		console.error("JSON parse error:", e)
+	}
+	map_points(pts)
 });
 
 function map_points(pts) {
@@ -32,31 +43,11 @@ function map_points(pts) {
 	    ]
 	}
 
-	// for (var i = 0; i < pts.length; i++) {
-	// 	console.log(pts[i]);
-	// };
-
-	var xmldom = require('xmldom');
-	 
-	// var dataset = {
-	//   apples: [53245, 28479, 19697, 24037, 40245],
-	// };
-	 
 	var width = 500,
 	    height = 500;
-	    // radius = Math.min(width, height) / 2;
-	 
-	// var color = d3.scale.category20();
-	 
-	// var pie = d3.layout.pie()
-	//     .sort(null);
-	 
-	// var arc = d3.svg.arc()
-	//     .innerRadius(radius - 100)
-	//     .outerRadius(radius - 50);
 
-	 
-	var svg = d3.select("body").append("svg")
+	var document = require('jsdom').jsdom();
+	var svg = d3.select(document.body).html('').append("svg")
 	    .attr("width", width)
 	    .attr("height", height)
 	    // .append("g")
@@ -112,36 +103,13 @@ function map_points(pts) {
 		.style("stroke-width", 1 + "px")
 		.attr("vector-effect","non-scaling-stroke")
 
-	// get a reference to our SVG object and add the SVG NS  
-	var svgGraph = d3.select('svg')
+	// get a reference to our SVG object and add the SVG NS
+	var svgGraph = svg
 	  .attr('xmlns', 'http://www.w3.org/2000/svg');
-	var svgXML = (new xmldom.XMLSerializer()).serializeToString(svgGraph[0][0]);
-
-	function dom_string_lower(ds){  // per http://stackoverflow.com/questions/20693235/get-lowercase-tag-names-with-xmldom-xmlserializer-in-node-js/20704228
-	    var cd = {}, //var to backup cdata contents
-	        i = 0,//key integer to cdata token
-	        tk = String(new Date().getTime());//cdata to restore
-
-	    //backup cdata and attributes, after replace string by tokens
-	    ds = ds.replace(/\<!\[CDATA\[.*?\]\]\>|[=]["'].*?["']/g, function(a){
-	        var k = tk + "_" + (++i);
-	        cd[k] = a;
-	        return k;
-	    });
-
-	    //to lower xml/html tags
-	    ds = ds.replace(/\<([^>]|[^=])+([=]| |\>)/g, function(a, b){
-	        return String(a).toLowerCase();
-	    });
-
-	    //restore cdata contents
-	    for(var k in cd){
-	        ds = ds.replace(k, cd[k]);
-	    }
-
-	    cd = null;//Clean variable
-	    return ds;
-	}
-	console.log(dom_string_lower(svgXML));
-	// fs.writeFile('graph.svg', );
+	console.log(`<?xml version="1.0" encoding="utf-8"?>
+	<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+	<svg width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+	${svgGraph.html()}
+	</svg>`);
+	return
 }

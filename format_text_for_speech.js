@@ -1,3 +1,7 @@
+#!/usr/bin/env node
+
+// USAGE
+
 // cat directions | node format_text_for_speech.js > directions_speech
 
 function text_filters(text) {
