@@ -11,10 +11,11 @@
   "dependencies": {
     "d3": "^3.5.17",
     "googlemaps": "*",
-    "jsdom": "~3.1.2"
+    "jsdom": "~3.1.2",
+    "randomcolor": "^0.4.4"
   },
   "respository": {
-    "type":"git",
+    "type": "git",
     "url": "https://github.com/saranrapjs/directions-podcast-tools.git"
   }
 }

@@ -8,9 +8,13 @@
 
 // OUTPUTS SVG MAP of DIRECTION POINTS
 
+var randomColor = require('randomcolor')
+const rando = randomColor({
+   luminosity: 'dark',
+});
 var fs = require('fs'),
 	d3 = require('d3'),
-	line_color = process.argv[2] || 'purple';
+	line_color = process.argv[2] || rando;
 
 let input = ''
 
